@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Giphy</title>
+
+     <!-- Include JQuery -->
+    <!-- <script src="jquery-3.4.1.min.js"></script> -->
+
+    <!-- Include local css -->
+    <link rel="stylesheet" href="./assets//css/style.css">
+
+    <!-- Include Bootstrap CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!-- Our local Game.js -->
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="buttonContainer" class="col-md-12">
+            </div>
+            <div id="gifContainer" class="col-md-12">
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="newCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newCategoryModalLabel">Add New Category</h5>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="categoryTextField" class="col-form-label">New Category:</label>
+                  <input type="text" class="form-control" id="categoryTextField">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="addButton" type="button" class="btn btn-primary">Add</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
