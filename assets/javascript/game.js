@@ -27,35 +27,36 @@ function addButtons() {
         } else {
             button.addClass('addTopicButton')
         }
+        button.click(animalButtonClicked)
         $('#buttonContainer').append(button)
     }
 
     $('.addTopicButton').click(function() {
         showAddButtonModel()
     })
+}
 
-    $('.animalButton').click(function(event) {
-        $.ajax({
-            url: "https://api.giphy.com/v1/gifs/search",
-            method: 'GET',
-            data: {
-                "api_key": giphyKey,
-                "q": event.target.textContent,
-                "limit": 10
-            }
-        }).then(function(response) {
-            let column = $('<div>')
-            column.addClass('col-md-12')
-            for(let i=0; i<response.data.length; i++) {
-                let imageData=response.data[i]
-                createCard(new CardData(imageData.images.fixed_width_small_still.url, imageData.rating), column)
-            }
+function animalButtonClicked(event) {
+    $.ajax({
+        url: "https://api.giphy.com/v1/gifs/search",
+        method: 'GET',
+        data: {
+            "api_key": giphyKey,
+            "q": event.target.textContent,
+            "limit": 10
+        }
+    }).then(function(response) {
+        let column = $('<div>')
+        column.addClass('col-md-12')
+        for(let i=0; i<response.data.length; i++) {
+            let imageData=response.data[i]
+            createCard(new CardData(imageData.images.fixed_width_small_still.url, imageData.rating), column)
+        }
 
-            let row = $('<div>')
-            row.addClass('row')
-            row.append(column)
-            $('#gifContainer').prepend(row)
-        })
+        let row = $('<div>')
+        row.addClass('row')
+        row.append(column)
+        $('#gifContainer').prepend(row)
     })
 }
 
@@ -87,6 +88,7 @@ function showAddButtonModel() {
             button.addClass('btn-success')
             button.addClass('animalButton')
             button.text(newCategoryText)
+            button.click(animalButtonClicked)
             $('#buttonContainer').append(button)
         }
         $('#newCategoryModal').modal('toggle')
