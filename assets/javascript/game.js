@@ -1,5 +1,5 @@
 let giphyKey = "x7rSwvVS57OlUAeop34M0FalVWimD9bU"
-let topics = ["Dog", "Cat", "Tiger", "Peacock", "Deer", "+"]
+let topics = ["Dog", "Cat", "Tiger", "Peacock", "Deer"]
 
 class CardData {
     imageURL = ""
@@ -13,6 +13,9 @@ class CardData {
 //Get call back when document loading is finished.
 $(document).ready(function() {
     addButtons()
+    $('#addTopicButton').click(function() {
+        showAddButtonModel()
+    })
 })
 
 function addButtons() {
@@ -22,18 +25,10 @@ function addButtons() {
         button.addClass('btn')
         button.addClass('btn-success')
         button.text(topics[i])
-        if(topics[i] !== "+") {
-            button.addClass('animalButton')
-        } else {
-            button.addClass('addTopicButton')
-        }
+        button.addClass('animalButton')
         button.click(animalButtonClicked)
         $('#buttonContainer').append(button)
     }
-
-    $('.addTopicButton').click(function() {
-        showAddButtonModel()
-    })
 }
 
 function animalButtonClicked(event) {
